@@ -6,7 +6,7 @@ Below are the commands for Linux (Same for MacOS). You can save this as a shell 
 git clone --filter=blob:none --sparse https://github.com/skills-cogrammar/C8-Lecture-Backpack.git
 
 # Changing directory to the cloned repository
-cd 2024-Commercial-Lecture-Backpack
+cd C8-Lecture-Backpack
 
 # Adding the specific folders to sparse checkout
 git sparse-checkout add "Software Engineering (SE)"

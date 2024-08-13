@@ -3,7 +3,7 @@ REM Cloning the repository with sparse checkout
 git clone --filter=blob:none --sparse https://github.com/skills-cogrammar/C8-Lecture-Backpack.git
 
 REM Changing directory to the cloned repository
-cd 2024-Commercial-Lecture-Backpack
+cd C8-Lecture-Backpack
 
 REM Adding the specific folders to sparse checkout
 git sparse-checkout add "Full Stack Web Development (WD)"
