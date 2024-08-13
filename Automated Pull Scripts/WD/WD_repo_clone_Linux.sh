@@ -1,6 +1,6 @@
 #!/bin/bash
 # Cloning the repository with sparse checkout
-git clone --filter=blob:none --sparse https://github.com/HyperionDevBootcamps/2024-Commercial-Lecture-Backpack.git
+git clone --filter=blob:none --sparse https://github.com/skills-cogrammar/C8-Lecture-Backpack.git
 
 # Changing directory to the cloned repository
 cd 2024-Commercial-Lecture-Backpack
