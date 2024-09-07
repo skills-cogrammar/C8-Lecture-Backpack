@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>python-git-github-lecture-plan.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="practical-session-python-the-terminal-git--github">Practical Session: Python, The Terminal, Git &amp; GitHub</h1>
+<h2 id="session-agenda">Session Agenda</h2>
+<ol>
+<li>Terminal Basics (10 mins)</li>
+<li>Python &amp; Git Installation (10 mins)</li>
+<li>GitHub Setup (10 mins)</li>
+<li>Git Basics &amp; Remote Repositories (15 mins)</li>
+<li>Python Loops &amp; Iterations (20 mins)</li>
+<li>Comprehensive Coding Exercise (25 mins)</li>
+<li>Pushing Code to GitHub (10 mins)</li>
+<li>Intro to GitHub .dev Environment (10 mins)</li>
+<li>Q&amp;A and Wrap-up (5 mins)</li>
+</ol>
+<p>Total Duration: 115 mins (1 hour 55 minutes)</p>
+<h2 id="1-terminal-usage-and-manipulation-10-mins">1. Terminal Usage and Manipulation (10 mins)</h2>
+<p><strong>Guide:</strong></p>
+<ul>
+<li>Introduce basic terminal commands: <code>cd</code>, <code>ls/dir</code>, <code>pwd</code>, <code>mkdir</code>, <code>touch/new-item</code>, <code>rm</code></li>
+<li>Practice creating a directory and navigating:</li>
+</ul>
+<pre class="hljs"><code><div>mkdir PythonProject
+<span class="hljs-built_in">cd</span> PythonProject
+<span class="hljs-built_in">pwd</span>
+</div></code></pre>
+<ul>
+<li>Explain the concept of current working directory</li>
+</ul>
+<h2 id="2-python-installation-and-verification-5-mins">2. Python Installation and Verification (5 mins)</h2>
+<p><strong>Guide:</strong></p>
+<ul>
+<li>Download and install Python from <a href="https://www.python.org/">Python.org</a></li>
+<li>Verify installation by running:</li>
+</ul>
+<pre class="hljs"><code><div>python --version
+</div></code></pre>
+<ul>
+<li>Demonstrate entering the Python interactive shell:</li>
+</ul>
+<pre class="hljs"><code><div>python
+</div></code></pre>
+<h2 id="3-git-installation-and-verification-5-mins">3. Git Installation and Verification (5 mins)</h2>
+<p><strong>Guide:</strong></p>
+<ul>
+<li>Download and install Git from <a href="https://git-scm.com/">Git-SCM.com</a></li>
+<li>Verify installation by running:</li>
+</ul>
+<pre class="hljs"><code><div>git --version
+</div></code></pre>
+<h2 id="4-create-a-github-account-and-repository-10-mins">4. Create a GitHub Account and Repository (10 mins)</h2>
+<p><strong>Guide:</strong></p>
+<ul>
+<li>Walk through the process of creating a GitHub account</li>
+<li>Demonstrate creating a new repository named &quot;PythonProject&quot;</li>
+<li>Explain repository settings (public vs private, README, .gitignore, license)</li>
+</ul>
+<h2 id="5-connect-remote-repository-to-local-10-mins">5. Connect Remote Repository to Local (10 mins)</h2>
+<p><strong>Guide:</strong></p>
+<ul>
+<li>Initialize local Git repository:</li>
+</ul>
+<pre class="hljs"><code><div>git init
+</div></code></pre>
+<ul>
+<li>Connect to remote repository:</li>
+</ul>
+<pre class="hljs"><code><div>git remote add origin https://github.com/yourusername/PythonProject.git
+</div></code></pre>
+<ul>
+<li>Explain the concept of remote repositories</li>
+</ul>
+<h2 id="6-checking-git-status-5-mins">6. Checking Git Status (5 mins)</h2>
+<p><strong>Guide:</strong></p>
+<ul>
+<li>Run and explain the output of:</li>
+</ul>
+<pre class="hljs"><code><div>git status
+</div></code></pre>
+<ul>
+<li>Discuss untracked files, staged changes, and commits</li>
+</ul>
+<h2 id="7-loops-and-iterations-20-mins">7. Loops and Iterations (20 mins)</h2>
+<p><strong>Guide:</strong></p>
+<ul>
+<li>Create a file <code>loops.py</code></li>
+<li>Explain and demonstrate for loops:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-comment"># Sum of numbers in a fixed list</span>
+numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]
+total = <span class="hljs-number">0</span>
+<span class="hljs-keyword">for</span> num <span class="hljs-keyword">in</span> numbers:
+    total += num
+print(<span class="hljs-string">f"Sum using for loop: <span class="hljs-subst">{total}</span>"</span>)
+</div></code></pre>
+<ul>
+<li>Explain and demonstrate while loops:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-comment"># Sum of numbers in a list with variable size</span>
+numbers = []
+<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
+    num = input(<span class="hljs-string">"Enter a number (or 'done' to finish): "</span>)
+    <span class="hljs-keyword">if</span> num == <span class="hljs-string">'done'</span>:
+        <span class="hljs-keyword">break</span>
+    numbers.append(int(num))
+
+total = <span class="hljs-number">0</span>
+i = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> i &lt; len(numbers):
+    total += numbers[i]
+    i += <span class="hljs-number">1</span>
+print(<span class="hljs-string">f"Sum using while loop: <span class="hljs-subst">{total}</span>"</span>)
+</div></code></pre>
+<h2 id="8-full-coding-exercise-25-mins">8. Full Coding Exercise (25 mins)</h2>
+<p><strong>Guide:</strong></p>
+<ul>
+<li>Create <code>main.py</code> with the following content:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-comment"># main.py</span>
+<span class="hljs-comment"># Data Types &amp; Input</span>
+name = input(<span class="hljs-string">"Enter your name: "</span>)  <span class="hljs-comment"># String</span>
+age = int(input(<span class="hljs-string">"Enter your age: "</span>))  <span class="hljs-comment"># Integer</span>
+is_student = input(<span class="hljs-string">"Are you a student? (yes/no): "</span>).lower() == <span class="hljs-string">'yes'</span>  <span class="hljs-comment"># Boolean</span>
+
+<span class="hljs-comment"># Conditional Statements</span>
+<span class="hljs-keyword">if</span> age &lt; <span class="hljs-number">18</span>:
+    print(<span class="hljs-string">f"Hello <span class="hljs-subst">{name}</span>, you are a minor."</span>)
+<span class="hljs-keyword">elif</span> <span class="hljs-number">18</span> &lt;= age &lt; <span class="hljs-number">65</span>:
+    print(<span class="hljs-string">f"Hello <span class="hljs-subst">{name}</span>, you are an adult."</span>)
+<span class="hljs-keyword">else</span>:
+    print(<span class="hljs-string">f"Hello <span class="hljs-subst">{name}</span>, you are a senior citizen."</span>)
+
+<span class="hljs-comment"># While Loop: Countdown</span>
+count = <span class="hljs-number">3</span>
+<span class="hljs-keyword">while</span> count &gt; <span class="hljs-number">0</span>:
+    print(<span class="hljs-string">f"Starting in <span class="hljs-subst">{count}</span>..."</span>)
+    count -= <span class="hljs-number">1</span>
+print(<span class="hljs-string">"Go!"</span>)
+
+<span class="hljs-comment"># For Loop: Multiplication Table</span>
+print(<span class="hljs-string">"\nMultiplication Table (1-5):"</span>)
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">6</span>):
+    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">6</span>):
+        print(<span class="hljs-string">f"<span class="hljs-subst">{i}</span> x <span class="hljs-subst">{j}</span> = <span class="hljs-subst">{i * j}</span>"</span>)
+    print(<span class="hljs-string">""</span>)  <span class="hljs-comment"># Blank line for separation</span>
+</div></code></pre>
+<ul>
+<li>Explain each section of the code</li>
+<li>Run the script and demonstrate the output</li>
+</ul>
+<h2 id="9-push-code-to-github-10-mins">9. Push Code to GitHub (10 mins)</h2>
+<p><strong>Guide:</strong></p>
+<ul>
+<li>Stage changes:</li>
+</ul>
+<pre class="hljs"><code><div>git add loops.py main.py
+</div></code></pre>
+<ul>
+<li>Commit changes:</li>
+</ul>
+<pre class="hljs"><code><div>git commit -m <span class="hljs-string">"Add loops example and main exercise"</span>
+</div></code></pre>
+<ul>
+<li>Push to GitHub:</li>
+</ul>
+<pre class="hljs"><code><div>git push -u origin main
+</div></code></pre>
+<ul>
+<li>View changes on GitHub repository</li>
+</ul>
+<h2 id="10-github-dev-environment-10-mins">10. GitHub .dev Environment (10 mins)</h2>
+<p><strong>Guide:</strong></p>
+<ul>
+<li>Explain the concept of GitHub's .dev environment</li>
+<li>Demonstrate how to access it:
+<ul>
+<li>Navigate to your GitHub repository</li>
+<li>Press the '.' key or change .com to .dev in the URL</li>
+</ul>
+</li>
+<li>Highlight key features:
+<ul>
+<li>Web-based VS Code environment</li>
+<li>No need for local VS Code installation</li>
+<li>Access to full repository</li>
+<li>Ability to edit, commit, and push changes directly from the browser</li>
+</ul>
+</li>
+<li>Show how to:
+<ul>
+<li>Open files</li>
+<li>Make edits</li>
+<li>Commit changes</li>
+<li>Push to the repository</li>
+</ul>
+</li>
+<li>Discuss benefits:
+<ul>
+<li>Quick edits without local setup</li>
+<li>Consistent development environment</li>
+<li>Great for collaboration and code reviews</li>
+<li>Useful for quick demonstrations or when away from your main development machine</li>
+</ul>
+</li>
+</ul>
+
+</body>
+</html>
