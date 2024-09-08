@@ -1,4 +1,3 @@
-# main.py
 # Data Types & Input
 name = input("Enter your name: ")  # String
 age = int(input("Enter your age: "))  # Integer
