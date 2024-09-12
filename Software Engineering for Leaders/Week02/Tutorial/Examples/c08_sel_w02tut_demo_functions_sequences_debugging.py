@@ -26,7 +26,9 @@ def main():
     print(f"The square of {num} is {squared}")
 
 # Calling the main function to run the program
-main()
+# This block will only run if the script is executed directly and not when imported.
+if __name__ == "__main__":
+    main()
 
 # ====== Apply Scope Rules to Avoid Common Errors Related to Variable Access and Modification
 
