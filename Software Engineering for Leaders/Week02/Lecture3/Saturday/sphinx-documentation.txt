@@ -1,0 +1,107 @@
+Setting Up Sphinx on Windows for Python Files
+
+1. Install Python and Pip
+
+Make sure you have Python and pip (Python's package installer) installed. 
+You can download Python from python.org and follow the installation instructions. 
+Ensure that you check the box to add Python to your system PATH during installation.
+
+2. Install Sphinx
+Open Command Prompt and install Sphinx using pip:
+
+> pip install sphinx
+
+3. Create a Documentation Directory
+
+Navigate to your project directory or create a new one for your documentation:
+
+> mkdir docs
+> cd docs
+
+4. Initialise Sphinx
+
+Run the sphinx-quickstart command in the terminal to generate the initial configuration files:
+
+> sphinx-quickstart
+
+You will be prompted to answer a series of questions to configure your documentation. 
+For a simple setup, you can accept the default options or provide your specific details.
+
+5. Configure Sphinx
+
+Open the conf.py file located in the docs/source directory. This is the configuration file for Sphinx. 
+Update it to include the path to your Python modules. 
+
+--> Add your project path to sys.path:
+
+import os
+import sys
+sys.path.insert(0, os.path.abspath('../your_python_module_directory'))
+
+Replace your_python_module_directory with the relative path to your Python module from the docs directory.
+
+6. Generate Documentation for Your Python Files
+
+You need to use autodoc extension to automatically generate documentation from docstrings in your Python files. 
+
+Ensure that extensions list in conf.py includes sphinx.ext.autodoc:
+
+extensions = ['sphinx.ext.autodoc']
+
+7. Create .rst Files
+
+--> Create reStructuredText files in the docs/source directory to organize your documentation. 
+
+For example, you can create index.rst which will serve as the main entry point:
+
+.. YourProject documentation master file, created by
+   sphinx-quickstart on Fri Sep 14 2024.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to YourProject's documentation!
+=======================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   modules
+
+--> Create another file, modules.rst, to include information about your modules:
+
+YourProject Modules
+====================
+
+.. automodule:: your_module_name
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   
+--> Replace your_module_name with the actual name of your module.
+
+8. Build the Documentation
+
+--> Navigate back to the docs directory and build the documentation using:
+
+make html
+
+This command will generate HTML files in the _build/html directory inside the docs directory. 
+Open index.html in a web browser to view your documentation.
+
+9. Updating Documentation
+
+Each time you update your Python code or documentation files, 
+rerun the make html command to regenerate the documentation.
+
+Summary
+1. Install Python and pip.
+2. Install Sphinx with pip install sphinx.
+3. Initialise Sphinx with sphinx-quickstart.
+4. Configure conf.py for your project.
+5. Use autodoc to document your code.
+6. Create and edit .rst files for your content.
+7. Build the documentation with make html.
+8. Open the generated HTML files to view the documentation.
+
+By following these steps, you should be able to set up a basic documentation system using Sphinx for your Python project on Windows.
