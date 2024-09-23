@@ -4,7 +4,7 @@ guests for their event. Write a program that creates this
 guest list. Ask the client how many VIPs will be there. 
 Each time you ask the user for a guest name, 
 you should write these details into a file, with each entry 
-separated by a line.
+on a new a line.
 '''
 
 num_vips = int(input("How many VIPs will be attending? "))
