@@ -1,0 +1,31 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+}
+
+.languages-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.language-card {
+  width: 15rem;
+  transition: transform 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.language-card:hover {
+  transform: scale(1.05);
+}
+
+.language-card img {
+  border-radius: 8px 8px 0 0;
+}
+
+.language-info h2 {
+  color: #0073e6;
+}

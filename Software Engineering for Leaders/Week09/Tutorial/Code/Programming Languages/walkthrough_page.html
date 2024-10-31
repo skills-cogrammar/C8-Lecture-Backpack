@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Languages Page Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #0073e6;
+        }
+        pre {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="text-center my-4">
+        <h1>Programming Languages Page Exercise Guide</h1>
+        <p>Follow this step-by-step guide to build an interactive Programming Languages Page.</p>
+    </header>
+
+    <section>
+        <h2>Objective</h2>
+        <p>Create an interactive "Programming Languages" page that displays information about four popular programming languages using HTML, CSS, and Bootstrap.</p>
+    </section>
+
+    <section class="my-5">
+        <h2>Step 1: Set Up the HTML Structure</h2>
+        <ol>
+            <li><strong>Create the HTML File:</strong> Start by creating a file named <code>index.html</code>.</li>
+            <li><strong>Basic HTML Boilerplate:</strong> Add the basic HTML structure:
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Programming Languages&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </li>
+            <li><strong>Page Title and Header:</strong> Inside <code>&lt;body&gt;</code>, add a main title:
+                <pre><code>&lt;header&gt;
+    &lt;h1&gt;Popular Programming Languages&lt;/h1&gt;
+&lt;/header&gt;</code></pre>
+            </li>
+            <li><strong>Programming Language Sections:</strong> Create a container <code>&lt;section&gt;</code> for language cards:
+                <pre><code>&lt;section class="languages-container"&gt;
+    &lt;!-- Language cards will go here --&gt;
+&lt;/section&gt;</code></pre>
+            </li>
+            <li><strong>Individual Language Cards:</strong> Add one card with an image, heading, and description:
+                <pre><code>&lt;div class="language-card"&gt;
+    &lt;img src="images/python-logo.png" alt="Python Logo"&gt;
+    &lt;h2&gt;Python&lt;/h2&gt;
+    &lt;p&gt;Python is known for its readability and versatility.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </li>
+        </ol>
+    </section>
+
+    <section class="my-5">
+        <h2>Step 2: Add Basic CSS for Layout and Styling</h2>
+        <ol>
+            <li><strong>Create a CSS File:</strong> Create a new file named <code>styles.css</code> in the same folder.</li>
+            <li><strong>Link the CSS:</strong> Link <code>styles.css</code> in <code>&lt;head&gt;</code>:
+                <pre><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code></pre>
+            </li>
+            <li><strong>CSS for Basic Styling:</strong> Add global styles in <code>styles.css</code>:
+                <pre><code>body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+header {
+    background-color: #0073e6;
+    color: white;
+    padding: 1rem;
+}</code></pre>
+            </li>
+            <li><strong>Language Card Styling:</strong> Style the card structure:
+                <pre><code>.language-card {
+    width: 150px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+}</code></pre>
+            </li>
+        </ol>
+    </section>
+
+    <section class="my-5">
+        <h2>Step 3: Integrate Bootstrap for Interactivity</h2>
+        <ol>
+            <li><strong>Link to Bootstrap:</strong> Add the Bootstrap CDN link in <code>&lt;head&gt;</code>:
+                <pre><code>&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"&gt;</code></pre>
+            </li>
+            <li><strong>Convert Language Cards to Bootstrap Cards:</strong> Add Bootstrap <code>card</code> classes to each card, like this:
+                <pre><code>&lt;div class="language-card card text-center"&gt;
+    &lt;img src="images/python-logo.png" class="card-img-top" alt="Python Logo"&gt;
+    &lt;div class="card-body"&gt;
+        &lt;h2 class="card-title"&gt;Python&lt;/h2&gt;
+        &lt;p class="card-text"&gt;Python is known for readability.&lt;/p&gt;
+        &lt;a href="https://www.python.org/" class="btn btn-primary"&gt;Learn More&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </li>
+        </ol>
+    </section>
+
+    <section class="my-5">
+        <h2>Step 4: Final Touches and Testing</h2>
+        <ol>
+            <li><strong>Preview the Page:</strong> Open <code>index.html</code> in a browser to view your work.</li>
+            <li><strong>Adjust CSS:</strong> Modify styles in <code>styles.css</code> as needed to customize the look.</li>
+        </ol>
+    </section>
+
+    <footer class="text-center mt-5">
+        <p>Good luck and enjoy building your interactive Programming Languages page!</p>
+    </footer>
+
+</body>
+</html>

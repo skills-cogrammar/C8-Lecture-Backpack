@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #b99191;
+    color: #333;
+    text-align: center;
+    margin: 0;
+  }
+  
+  header {
+    background-color: #0073e6;
+    color: white;
+    padding: 1rem;
+  }
+  
+  .languages-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 2rem;
+  }
+  
+  .language-card {
+    position: relative;
+    width: 150px;
+    text-align: center;
+  }
+  
+  .language-card img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .language-card:hover img {
+    transform: scale(1.1);
+  }
+  
+  .language-info {
+    display: none; /* Hide the description initially */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 8px;
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .language-card:hover .language-info {
+    display: block;
+    opacity: 1; /* Show the description on hover */
+  }
+  
+  .language-info h2 {
+    margin-top: 0;
+    color: #ffdb4d;
+  }
+  
+  .language-info p {
+    font-size: 0.9rem;
+  }
+  

@@ -1,0 +1,2 @@
+add music background when the mouse hover over a title. 
+The tile should change color and the mouse should be different
